@@ -1,6 +1,6 @@
 // Timer state
-let workTime = 0.5 * 60; // 25 minutes in seconds
-let breakTime = 0.5 * 60; // 5 minutes in seconds
+let workTime = 25 * 60; // 25 minutes in seconds
+let breakTime = 5 * 60; // 5 minutes in seconds
 let countDownWorkTime = workTime;
 let countDownBreakTime = breakTime;
 let isWorking = true; // Flag to track if currently in work period
@@ -86,9 +86,9 @@ function updatePeriodHistory() {
 function startTimer() {
     if (timerId)
         return; // Timer is already running
-    statusDisplay.textContent = "Gambatte Kudasai!!!";
     timerId = setInterval(() => {
         if (isWorking) {
+            statusDisplay.textContent = "Gambatte Kudasai!!!";
             countDownWorkTime--;
             updateTimerDisplay(countDownWorkTime);
             if (countDownWorkTime <= 0) {
